@@ -63,7 +63,7 @@
 
   .events-box {
     
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 50px 0;
