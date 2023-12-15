@@ -58,10 +58,7 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
                 data-tooltip-place="top"
               >
                 {tp.descricao.substr(0, 15)} ...
-                <Tooltip
-                  id="description-tooltip"
-                  className="custom-tootip"
-                />
+                <Tooltip id="description-tooltip" className="custom-tootip" />
               </td>
               <td className="table-data__data table-data__data--big">
                 {tp.tiposEvento.titulo}
@@ -71,11 +68,14 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
               </td>
 
               <td className="table-data__data table-data__data--little">
-              <FaEye size={20} style={{cursor:"pointer"}}
-              onClick={(e) => {
-                navigate("/detalhes-evento")
-              }}
-              />
+                <FaEye
+                  size={20}
+                  idevento={tp.idEvento}
+                  style={{ cursor: "pointer" }}
+                  onClick={(e) => {
+                    navigate(`/detalhes-evento/${tp.idEvento}`);
+                  }}
+                />
               </td>
               <td className="table-data__data table-data__data--little">
                 <img
@@ -85,13 +85,14 @@ const Table = ({ dados, fnDelete = null, fnUpdate = null }) => {
                   alt=""
                   onClick={(e) =>
                     // dá pra passar o obhjeto tp direto?
-                    fnUpdate({//showUpdateForma(??)
+                    fnUpdate({
+                      //showUpdateForma(??)
                       idEvento: tp.idEvento,
                       nomeEvento: tp.nomeEvento,
                       dataEvento: tp.dataEvento,
                       descricao: tp.descricao,
                       idInstituicao: tp.idInstituicao, //por enquanto chumbado
-                      idTipoEvento: tp.idTipoEvento
+                      idTipoEvento: tp.idTipoEvento,
                     })
                   }
                 />
